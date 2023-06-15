@@ -3,7 +3,9 @@
 # Sentiment Analysis Review
 
 ## 1. Project Planning and Setup
-
+* Goals : 
+* User : End user
+* Performace constraints : accuracy >= 90%
 
 ## 2. Data Colection and Labeling
 
