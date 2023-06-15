@@ -17,14 +17,44 @@ Memberikan prediksi apakah review yang diberikan oleh pengguna menandakan bahwa 
 * Data preprocessing & respresentation:
   * Mengubah semua karakter menjadi huruf kecil
   ```sh
-  #Mengubah menjadi huruf kecil semua
   df['text'] = df['text'].apply(lambda x: x.lower())
-  print(df)
   ```
   * Menghapus karakter dan tanda baca yang tidak diinginkan
+  ```sh
+  df['text'] = df['text'].apply(lambda x: re.sub(r'[^a-zA-Z0-9\s]', '', x))
+  ```
   * Menghapus spasi berlebih
+  ```sh
+  df['text'] = df['text'].str.replace(r'\s+', ' ')
+  ```
   * Mengabungkan kata-kata penting agar tidak hilang
+  ```sh
+  def combine_important_words(tokens):
+    combined_tokens = []
+    skip_next = False
+    for i in range(len(tokens) - 1):
+        if skip_next:
+            skip_next = False
+            continue
+        if tokens[i] in ['tidak', 'kurang']:
+            combined_tokens.append(tokens[i] + '_' + tokens[i+1])
+            skip_next = True
+        else:
+            combined_tokens.append(tokens[i])
+    if not skip_next:
+        combined_tokens.append(tokens[-1])
+    return combined_tokens
+    
+    df['Tokens'] = df['text'].apply(word_tokenize)
+    df['Combined_Tokens'] = df['Tokens'].apply(combine_important_words)
+  ```
   * Stopword removal
+  ```sh
+  stopwords_ind = stopwords.words('indonesian')
+  df['Clean_Tokens'] = df['Combined_Tokens'].apply(lambda x: [word for word in x if word.lower() not in stopwords_ind])
+  
+  df['clean_text'] = df['Clean_Tokens'].apply(lambda x: ' '.join(x))
+  ```
 
 ## 3. Model Trainig and Debugging
 * Model selection: 
