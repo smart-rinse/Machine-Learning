@@ -29,4 +29,4 @@ Memberikan prediksi apakah review yang diberikan oleh pengguna menandakan bahwa 
 * Debugging
 
 ## 4. Deployment and Monitoring
-Menyimpan model dalam bentuk .h5 beserta dengan tokenizer. Kemudian, data di deploy di cloud.
+Menyimpan model dalam bentuk .h5 beserta dengan tokenizer. Kemudian, model di deploy di cloud.
