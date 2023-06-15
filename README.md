@@ -57,11 +57,16 @@ Memberikan prediksi apakah review yang diberikan oleh pengguna menandakan bahwa 
   ```
 
 ## 3. Model Trainig and Debugging
-* Model selection: 
-  * Classification supervised learning
-  * Sentiment analysis
-* Model training: link notebook
-* Debugging
+* Model selection: Model ini merupakan model classification dan supervised learning dan berfokus pada sentimen analisis untuk mengklasifikasikan review menjadi positif atau negatif.
+* Model training: Model ini menggunakan layer embedding. Then at the final layers, a sequential model is used which consists of:
+  - `Dense(units=64, activation='relu')` layer
+  - `Dense(units=32, activation='relu')` layer
+  - `Dropout(0.4)` layer
+  - `Dense(units=1, activation='sigmoid')` layer
+  Result:
+  - `Loss: ......`
+  - `Accuracy: ......`
+* Debugging: Mengatasi masalah overfitting dengan memperbanyak data
 
-## 4. Deployment and Monitoring
-Menyimpan model dalam bentuk .h5 beserta dengan tokenizer. Kemudian, model di deploy di cloud.
+## 4. Deployment
+The model architecture then deployed to backend service / google cloud and then the model will get the data and process it.
