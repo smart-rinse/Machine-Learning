@@ -16,6 +16,11 @@ Memberikan prediksi apakah review yang diberikan oleh pengguna menandakan bahwa 
 * Storage: cloud
 * Data preprocessing & respresentation:
   * Mengubah semua karakter menjadi huruf kecil
+  ```sh
+  #Mengubah menjadi huruf kecil semua
+  df['text'] = df['text'].apply(lambda x: x.lower())
+  print(df)
+  ```
   * Menghapus karakter dan tanda baca yang tidak diinginkan
   * Menghapus spasi berlebih
   * Mengabungkan kata-kata penting agar tidak hilang
