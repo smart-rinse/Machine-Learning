@@ -1,6 +1,7 @@
 # Lifecycle of Machine-Learning Project
 
 # Sentiment Analysis Review
+Memberikan prediksi apakah review yang diberikan oleh pengguna menandakan bahwa mereka puas dengan layanan laundrynya atau malah mereka kecewa.
 
 ## 1. Project Planning and Setup
 * Goals : 
@@ -18,11 +19,14 @@
   * Menghapus karakter dan tanda baca yang tidak diinginkan
   * Menghapus spasi berlebih
   * Mengabungkan kata-kata penting agar tidak hilang
-  * 
+  * Stopword removal
 
 ## 3. Model Trainig and Debugging
-* Model selection
-* Model training
+* Model selection: 
+  * Classification supervised learning
+  * Sentiment analysis
+* Model training: link notebook
 * Debugging
 
 ## 4. Deployment and Monitoring
+Menyimpan model dalam bentuk .h5 beserta dengan tokenizer. Kemudian, data di deploy di cloud.
