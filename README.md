@@ -6,28 +6,29 @@ Sentiment analysis evaluates the quality of the laundry based on previous user r
 ## 1. Project Planning and Setup
 * Goals: Improving the quality of recommendations by considering the sentiments of user reviews.
 * User: End user
-* Evaluation
-<br> Create a visualization of all training loss/accuracy and validation loss/accuracy and also create a predict function to predict the sentiment results from new input words. </br>
+* Evaluation: Create a visualization of all training loss/accuracy and validation loss/accuracy and also create a predict function to predict the sentiment results from new input words. </br>
 
 ## 2. Data Colection and Labeling
-* Data availability and collection:
-  * Data review: Data review terdiri dari 2 kolom yaitu teks review dan label. Data ini selanjutnya digunakan untuk membuat model sentimen analysis.
+* Data availability and collection: Data collection is done by collecting laundry review data on the internet.
+  * Review dataset
+  <br> Review dataset consists of two columns, which is review text and labels. This data is then used to create a sentiment analysis model. </br>
   
-  * Data laundry: Data laundry erisikan informasi detail dari setiap laundry. This data is further used to create dummy dataset for backend database.
-* Data preprocessing & respresentation:
-  * Mengubah semua karakter menjadi huruf kecil
+  * Laundry dataset
+  <br> Laundry dataset contains detailed information for each laundry. This data is further used to create dummy dataset for backend database. </br>
+* Data preprocessing:
+  * Converts all characters to lowercase
   ```sh
   df['text'] = df['text'].apply(lambda x: x.lower())
   ```
-  * Menghapus karakter dan tanda baca yang tidak diinginkan
+  * Remove unwanted characters and punctuation
   ```sh
   df['text'] = df['text'].apply(lambda x: re.sub(r'[^a-zA-Z0-9\s]', '', x))
   ```
-  * Menghapus spasi berlebih
+  * Remove excess spaces
   ```sh
   df['text'] = df['text'].str.replace(r'\s+', ' ')
   ```
-  * Mengabungkan kata-kata penting agar tidak hilang
+  * Modify the tokenizer
   ```sh
   def combine_important_words(tokens):
     combined_tokens = []
@@ -57,8 +58,8 @@ Sentiment analysis evaluates the quality of the laundry based on previous user r
   ```
 
 ## 3. Model Trainig and Debugging
-* Model selection: Model ini merupakan model classification dan supervised learning dan berfokus pada sentimen analisis untuk mengklasifikasikan review menjadi positif atau negatif.
-* Model training: Model ini menggunakan layer embedding. Then at the final layers, a sequential model is used which consists of:
+* Model selection: This model is a classification and supervised learning model and focuses on sentiment analysis to classify reviews as positive (1) or negative (0).
+* Model training: This model uses embedding layer. Then at the final layers, a sequential model is used which consists of:
   - `Dense(units=64, activation='relu')` layer
   - `Dense(units=32, activation='relu')` layer
   - `Dropout(0.4)` layer
@@ -66,7 +67,18 @@ Sentiment analysis evaluates the quality of the laundry based on previous user r
   <br> Result: </br>
   - `Loss: ......`
   - `Accuracy: ......`
-* Debugging: Mengatasi masalah overfitting dengan memperbanyak data
+* Debugging: Solved the problem of overfitting by multiplying data.
 
 ## 4. Deployment
 The model architecture then deployed to backend service / google cloud and then the model will get the data and process it.
+
+## Prerequisites
+Function dependencies used in this project:
+* keras==?
+* numpy==?
+* pandas==?
+* tensorflow==?
+* gensim==?
+* nlpaug==?
+* sklearn==?
+* nltk==?
