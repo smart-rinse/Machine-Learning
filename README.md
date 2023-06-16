@@ -58,7 +58,7 @@ Sentiment analysis evaluates the quality of the laundry based on previous user r
   ```
 ## 3. Data Splitting
 * Dataset for training consists of more than 2000 row of data. 80% of the data will be used for training set, and 20% of the data will be used for test set.
-## 4. Model Trainig and Debugging
+## 4. Model Training and Debugging
 * Tokenized word index data is exported into .pkl file. So we don't need to fit the data anymore when using on production. We only need to load pickle file for production purpose.
 * Model selection: This model is a classification and supervised learning model and focuses on sentiment analysis to classify reviews as positive (1) or negative (0).
 * Model training: This model uses embedding layer. Then at the final layers, a sequential model is used which consists of:
