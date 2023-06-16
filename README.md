@@ -9,7 +9,7 @@ Sentiment analysis evaluates the quality of the laundry based on previous user r
 * Evaluation: Create a visualization of all training loss/accuracy and validation loss/accuracy and also create a predict function to predict the sentiment results from new input words. </br>
 
 ## 2. Data Colection and Labeling
-* Data availability and collection: Data collection is done by collecting laundry review data on the internet.
+* Data availability and collection: Data collection is done by collecting laundry review data on the internet (specifically on google maps).
   * Review dataset
   <br> Review dataset consists of two columns, which is review text and labels. This data is then used to create a sentiment analysis model. </br>
   
@@ -37,7 +37,7 @@ Sentiment analysis evaluates the quality of the laundry based on previous user r
         if skip_next:
             skip_next = False
             continue
-        if tokens[i] in ['tidak', 'kurang']:
+        if tokens[i] in ['tidak', 'kurang', 'gak', 'sangat', 'banget', 'kadang', 'terlalu','yg','gk']:
             combined_tokens.append(tokens[i] + '_' + tokens[i+1])
             skip_next = True
         else:
@@ -56,8 +56,10 @@ Sentiment analysis evaluates the quality of the laundry based on previous user r
   
   df['clean_text'] = df['Clean_Tokens'].apply(lambda x: ' '.join(x))
   ```
-
-## 3. Model Trainig and Debugging
+## 3. Data Splitting
+* Dataset for training consists of more than 2000 row of data. 80% of the data will be used for training set, and 20% of the data will be used for test set.
+## 4. Model Trainig and Debugging
+* Tokenized word index data is exported into .pkl file. So we don't need to fit the data anymore when using on production. We only need to load pickle file for production purpose.
 * Model selection: This model is a classification and supervised learning model and focuses on sentiment analysis to classify reviews as positive (1) or negative (0).
 * Model training: This model uses embedding layer. Then at the final layers, a sequential model is used which consists of:
   - `Dense(units=64, activation='relu')` layer
@@ -65,20 +67,20 @@ Sentiment analysis evaluates the quality of the laundry based on previous user r
   - `Dropout(0.4)` layer
   - `Dense(units=1, activation='sigmoid')` layer
   <br> Result: </br>
-  - `Loss: ......`
-  - `Accuracy: ......`
-* Debugging: Solved the problem of overfitting by multiplying data.
+  - `Loss: 0.3%`
+  - `Accuracy: 99%`
+* Debugging: Solved the problem of overfitting by multiplying data and using Kfold cross validation.
+* Note : although the model having a high accuracy, the model still got some misclassification issue when testing the model. But overall, it works fine.
 
-## 4. Deployment
+## 5. Deployment
 The model architecture then deployed to backend service / google cloud and then the model will get the data and process it.
 
 ## Prerequisites
-Function dependencies used in this project:
-* keras==?
-* numpy==?
-* pandas==?
-* tensorflow==?
-* gensim==?
-* nlpaug==?
-* sklearn==?
-* nltk==?
+Library used in this project:
+* numpy==1.22.4
+* pandas==1.5.3
+* tensorflow==2.12.0
+* gensim==4.3.1
+* nlpaug==1.1.11
+* scikit-learn==1.2.2
+* nltk==3.8.1
