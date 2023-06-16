@@ -9,10 +9,9 @@ Sentiment analysis mengevaluasi kualitas laundry berdasarkan ulasan pengguna seb
 
 ## 2. Data Colection and Labeling
 * Data availability and collection:
-  * Data review: Berisikan data-data review dari beberapa laundry yang kemudian diklasifikasikan menjadi review positif dan negatif. Data ini digunakan untuk membuat model machine learning.
+  * Data review: Data review terdiri dari 2 kolom yaitu teks review dan label. Data ini selanjutnya digunakan untuk membuat model sentimen analysis.
   
-  * Data laundry: Berisikan informasi detail dari setiap laundry. This data is further used to create dummy dataset for backend database.
-* Storage: cloud
+  * Data laundry: Data laundry erisikan informasi detail dari setiap laundry. This data is further used to create dummy dataset for backend database.
 * Data preprocessing & respresentation:
   * Mengubah semua karakter menjadi huruf kecil
   ```sh
@@ -62,7 +61,7 @@ Sentiment analysis mengevaluasi kualitas laundry berdasarkan ulasan pengguna seb
   - `Dense(units=32, activation='relu')` layer
   - `Dropout(0.4)` layer
   - `Dense(units=1, activation='sigmoid')` layer
-  /n Result:
+  <br> Result: </br>
   - `Loss: ......`
   - `Accuracy: ......`
 * Debugging: Mengatasi masalah overfitting dengan memperbanyak data
