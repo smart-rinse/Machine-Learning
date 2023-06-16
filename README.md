@@ -1,11 +1,13 @@
 # Lifecycle of Machine-Learning Project
 
 # Sentiment Analysis Review
-Sentiment analysis mengevaluasi kualitas laundry berdasarkan ulasan pengguna sebelumnya. Kemudian memberikan rekomendasi laundry yang berkualitas kepada pengguna. Dalam sistem rekomendasi, sentimen positif dapat menjadi faktor penting dalam menentukan laundry yang direkomendasikan kepada pengguna.
+Sentiment analysis evaluates the quality of the laundry based on previous user reviews. Then provide quality laundry recommendations to users. In a recommendation system, positive sentiment can be an important factor in determining laundry recommendations to users.
 
 ## 1. Project Planning and Setup
-* Goals : Meningkatkan kualitas rekomendasi dengan mempertimbangkan sentimen pengguna.
-* Performace constraints : accuracy >= 90%
+* Goals: Improving the quality of recommendations by considering the sentiments of user reviews.
+* User: End user
+* Evaluation
+<br> Create a visualization of all training loss/accuracy and validation loss/accuracy and also create a predict function to predict the sentiment results from new input words. </br>
 
 ## 2. Data Colection and Labeling
 * Data availability and collection:
