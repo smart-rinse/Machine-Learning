@@ -1,11 +1,10 @@
 # Lifecycle of Machine-Learning Project
 
 # Sentiment Analysis Review
-Memberikan prediksi apakah review yang diberikan oleh pengguna menandakan bahwa mereka puas dengan layanan laundrynya atau malah mereka kecewa.
+Sentiment analysis mengevaluasi kualitas laundry berdasarkan ulasan pengguna sebelumnya. Kemudian memberikan rekomendasi laundry yang berkualitas kepada pengguna. Dalam sistem rekomendasi, sentimen positif dapat menjadi faktor penting dalam menentukan laundry yang direkomendasikan kepada pengguna.
 
 ## 1. Project Planning and Setup
-* Goals : 
-* User : End user
+* Goals : Meningkatkan kualitas rekomendasi dengan mempertimbangkan sentimen pengguna.
 * Performace constraints : accuracy >= 90%
 
 ## 2. Data Colection and Labeling
@@ -63,7 +62,7 @@ Memberikan prediksi apakah review yang diberikan oleh pengguna menandakan bahwa 
   - `Dense(units=32, activation='relu')` layer
   - `Dropout(0.4)` layer
   - `Dense(units=1, activation='sigmoid')` layer
-  Result:
+  /n Result:
   - `Loss: ......`
   - `Accuracy: ......`
 * Debugging: Mengatasi masalah overfitting dengan memperbanyak data
